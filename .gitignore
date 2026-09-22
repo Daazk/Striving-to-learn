@@ -1,0 +1,33 @@
+.env
+.env.local
+.env.*.local
+!.env.example
+
+#  Python и Виртуальные окружения
+.venv/
+venv/
+ENV/
+env/
+/pip-wheel-metadata/
+
+# Компьютерный кэш Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+
+postgres_data/
+pgdata/
+db_data/
+*.db
+*.sqlite3
+
+# Конфигурации IDE и ОС
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
