@@ -103,9 +103,9 @@ def test_refresh_returns_new_pair(client, tokens):
     )
 
     assert response.status_code == 200
-    news_token = response.json()
-    assert news_token["refresh_token"] != tokens["refresh_token"]
-    assert news_token["access_token"] != tokens["access_token"]
+    new_tokens = response.json()
+    assert new_tokens["refresh_token"] != tokens["refresh_token"]
+    assert new_tokens["access_token"] != tokens["access_token"]
 
 
 def test_refresh_token_cannot_be_reused(client, tokens):
@@ -136,7 +136,7 @@ def test_refresh_with_expired_token_fails(client):
 
 
 # Logout
-def test_logut_revokes_refresh_token(client, tokens, db):
+def test_logout_revokes_refresh_token(client, tokens, db):
     body = {"refresh_token": tokens["refresh_token"]}
     response = client.post(f"{AUTH}/logout", json=body)
 
